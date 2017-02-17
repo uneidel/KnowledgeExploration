@@ -1,0 +1,13 @@
+﻿        public static dynamic GetItems(string baseuri, ICredentials credentials, string listTitle)
+        {
+            RestSharp.RestClient c = new RestSharp.RestClient(baseuri);
+            //c.Authenticator = new RestSharp.Authenticators.HttpBasicAuthenticatorcredentials);
+           // c.AddHandler("application/json", new SharePointJsonDeserializer());
+            var request = new RestRequest(String.Format("{0}/_api/web/lists/getbytitle('{1}')/Items", baseuri, listTitle), Method.GET);
+            request.Credentials = credentials;
+            request.AddHeader("X-FORMS_BASED_AUTH_ACCEPTED", "f");
+            request.AddHeader("Accept", "application/json;odata=verbose");
+            var items = c.Execute<dynamic>(request);//.Data;
+            return items;
+
+        }

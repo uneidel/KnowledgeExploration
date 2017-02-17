@@ -1,0 +1,25 @@
+﻿{
+  "Partner": [
+    {
+      "Name": "fooMaster",
+      "Type": "Media Outlet"
+    }
+  ],
+  "Engagement": [
+    {
+      "Name": "SomeFancyShit",
+      "Keywords": [
+       
+          "foo",
+          "master",
+          "artbrut"
+       
+      ],
+      "Type": "ADS"
+    }
+  ],
+  "SupportingPartner": "MeandMyself",
+  "PBE": "lakeller",
+  "TE": "uneidel",
+  "UniqueId": "{xxxxxxxx}"
+}

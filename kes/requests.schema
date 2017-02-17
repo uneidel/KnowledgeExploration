@@ -1,0 +1,28 @@
+﻿{
+  "attributes": [
+    {"name": "Partner", "type":"Composite"},
+    {"name": "Partner.Name","type": "String"},
+    {"name": "Partner.Type","type": "String","operations": ["equals"]},
+    {"name": "Engagement","type": "Composite"},
+    {"name": "Engagement.Keywords","type": "String"},
+    {"name": "Engagement.Type","type": "String","operations": [ "equals" ]},
+    {
+      "name": "SupportingPartner",
+      "type": "String"
+    },
+    {
+      "name": "PBE",
+      "type": "string"
+    },
+    {
+      "name": "TE",
+      "type": "string"
+    },
+    {
+      "name": "UniqueId",
+      "type": "string"
+
+    }
+
+  ]
+}

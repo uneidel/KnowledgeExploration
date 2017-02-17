@@ -1,0 +1,56 @@
+﻿<grammar root="GetEngagementByTE">
+  <import schema="requests.schema" name="requests"/>
+
+  <!-- Define root rule-->
+  <rule id="GetEngagementsByTE">
+    <example>engagements by uneidel</example>
+    engagements
+    <tag>
+      yearOnce = false;
+      isBeyondEndOfQuery = false;
+      query = All();
+    </tag>
+
+    <item repeat="1-" repeat-logprob="-10">
+      
+      <tag>AssertEquals(isBeyondEndOfQuery, false);</tag>
+
+      <one-of>
+        <!-- about <keyword> -->
+        <item>
+          über <attrref uri="requests#Engagement.Keywords" name="keyword"/>
+          <tag>query = And(query, keyword);</tag>
+        </item>
+        <!--
+        
+        <item logprob="-1">
+          mit TE <attrref uri="requests#TE" name="TE"/>
+          <tag>teQuery = TE;</tag>
+         
+          <tag>
+            teQuery = Composite(teQuery);
+            query = And(query, teQuery);
+          </tag>
+        </item>
+
+        
+        <item logprob="-1.5">
+          
+          <tag>
+            AssertEquals(yearOnce, false);
+            yearOnce = true;
+          </tag>
+          <ruleref uri="#GetPaperYear" name="year"/>
+          <tag>query = And(query, year);</tag>
+        </item>
+        -->
+      </one-of>
+
+      <!-- Determine if current parse position is beyond end of query -->
+      <!--<tag>isBeyondEndOfQuery = GetVariable("IsBeyondEndOfQuery", "system");</tag>-->
+    </item>
+    <tag>out = query;</tag>
+  </rule>
+
+ 
+</grammar>
